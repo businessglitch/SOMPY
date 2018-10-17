@@ -2,7 +2,6 @@ from .view import MatplotView
 from matplotlib import pyplot as plt
 import numpy as np
 
-
 class HitMapView(MatplotView):
 
     def _set_labels(self, cents, ax, labels):
@@ -32,6 +31,6 @@ class HitMapView(MatplotView):
             self._set_labels(cents, ax, codebook)
 
         plt.imshow(codebook.reshape(msz[0], msz[1])[::], alpha=.5)
-        plt.show()
+        self.plt = plt
 
         return cents

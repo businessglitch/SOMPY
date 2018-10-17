@@ -12,6 +12,7 @@ class View(object):
         self.text_size = text_size
         self.show_text = show_text
         self.col_size = col_size
+        self.plt = None
 
     def prepare(self, *args, **kwargs):
         raise NotImplementedError()
@@ -34,6 +35,9 @@ class MatplotView(View):
 
     def __del__(self):
         self._close_fig()
+
+    def showGraph(self):
+        self.plt.show()
 
     def _close_fig(self):
         if self._fig:
